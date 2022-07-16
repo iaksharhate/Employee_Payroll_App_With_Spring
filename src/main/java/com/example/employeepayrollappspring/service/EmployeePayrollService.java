@@ -1,53 +1,47 @@
 package com.example.employeepayrollappspring.service;
 
+import com.example.employeepayrollappspring.dto.EmployeeDTO;
 import com.example.employeepayrollappspring.model.Employee;
 import com.example.employeepayrollappspring.repository.EmployeePayrollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class EmployeePayrollService implements IEmployeePayrollService{
 
-    @Autowired
-    private EmployeePayrollRepository repository;
-
     @Override
-    public String sayWelcome() {
-        return "Hello World!!!";
+    public List<Employee> getEmployeeData() {
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(new Employee(1, new EmployeeDTO("Akshar", "Hate","HR",30000)));
+        return employeeList;
     }
 
     @Override
-    public Employee saveEmployee(Employee employee) {
-        return repository.save(employee);
+    public Employee getEmployeeDataById(int empId) {
+        Employee employee = null;
+        employee = new Employee(1, new EmployeeDTO("Yogesh", "More","PD",35000));
+        return employee;
     }
 
     @Override
-    public Employee findEmployeeById(Integer id) {
-        return repository.findById(id).orElse(null);
+    public Employee createEmployeeData(EmployeeDTO employeeDTO) {
+        Employee employee = null;
+        employee = new Employee(1, employeeDTO);
+        return employee;
     }
 
     @Override
-    public List<Employee> allEmployee() {
-        return repository.findAll();
+    public Employee updateEmployeeData(int empId, EmployeeDTO empPayrollDTO) {
+        Employee employee = null;
+        employee = new Employee(1, empPayrollDTO);
+        return employee;
     }
 
     @Override
-    public Employee editEmployee(Employee employee, Integer id) {
-        Employee existingEmployee =repository.findById(id).orElse(null);
-        if (existingEmployee != null){
-            existingEmployee.setFirstName(employee.getFirstName());
-            existingEmployee.setLastName(employee.getLastName());
-            existingEmployee.setDepartment(employee.getDepartment());
-            existingEmployee.setSalary(employee.getSalary());
-            return repository.save(existingEmployee);
-        }else
-            return null;
-    }
+    public void deleteEmployeeData(int empId) {
 
-    @Override
-    public void deleteEmployee(Integer id) {
-        repository.deleteById(id);
     }
 }
