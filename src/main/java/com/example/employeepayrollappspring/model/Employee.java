@@ -1,5 +1,7 @@
 package com.example.employeepayrollappspring.model;
 
+import com.example.employeepayrollappspring.dto.EmployeeDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,6 +33,14 @@ public class Employee {
         return firstName;
     }
 
+    public Employee(int id, EmployeeDTO employeeDTO) {
+        this.id = id;
+        this.firstName = employeeDTO.firstName;
+        this.lastName = employeeDTO.lastName;
+        this.department = employeeDTO.department;
+        this.salary = employeeDTO.salary;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -59,11 +69,4 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee(int id, String firstName, String lastName, String department, long salary) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.department = department;
-        this.salary = salary;
-    }
 }
