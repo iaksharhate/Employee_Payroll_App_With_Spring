@@ -2,8 +2,6 @@ package com.example.employeepayrollappspring.service;
 
 import com.example.employeepayrollappspring.dto.EmployeeDTO;
 import com.example.employeepayrollappspring.model.Employee;
-import com.example.employeepayrollappspring.repository.EmployeePayrollRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -41,7 +39,7 @@ public class EmployeePayrollService implements IEmployeePayrollService{
     }
 
     @Override
-    public void deleteEmployeeData(int empId) {
+    public void deleteEmployeeData(int id) {
 
     }
 }
