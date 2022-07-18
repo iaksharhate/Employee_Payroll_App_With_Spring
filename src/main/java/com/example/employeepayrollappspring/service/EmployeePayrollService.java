@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class EmployeePayrollService implements IEmployeePayrollService{
 
-    private List<Employee> employeeList = new ArrayList<Employee>();
+    private List<Employee> employeeList = new ArrayList<>();
 
     @Override
     public List<Employee> getEmployeeData() {
@@ -26,6 +26,7 @@ public class EmployeePayrollService implements IEmployeePayrollService{
     public Employee createEmployeeData(EmployeeDTO employeeDTO) {
         Employee employee = null;
         employee = new Employee(employeeList.size()+1, employeeDTO);
+        employeeList.add(employee);
         return employee;
     }
 
@@ -34,7 +35,9 @@ public class EmployeePayrollService implements IEmployeePayrollService{
         Employee employee = this.getEmployeeDataById(id);
         employee.setFirstName(employeeDTO.firstName);
         employee.setLastName(employeeDTO.lastName);
-        employeeList.set(id - 1, employee);
+        employee.setDepartment(employeeDTO.department);
+        employee.setSalary(employeeDTO.salary);
+        employeeList.set(id-1, employee);
         return employee;
     }
 

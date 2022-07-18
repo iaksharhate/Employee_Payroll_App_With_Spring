@@ -9,11 +9,11 @@ public interface IEmployeePayrollService {
 
     List<Employee> getEmployeeData();
 
-    Employee getEmployeeDataById(int empId);
+    Employee getEmployeeDataById(int id);
 
     Employee createEmployeeData(EmployeeDTO employeeDTO);
 
-    Employee updateEmployeeData(int empId, EmployeeDTO empPayrollDTO);
+    Employee updateEmployeeData(int id, EmployeeDTO empPayrollDTO);
 
     void deleteEmployeeData(int id);
 }
