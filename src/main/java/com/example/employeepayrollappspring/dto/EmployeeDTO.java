@@ -1,5 +1,10 @@
 package com.example.employeepayrollappspring.dto;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@RequiredArgsConstructor
 public class EmployeeDTO {
 
     public String firstName;
@@ -12,15 +17,5 @@ public class EmployeeDTO {
         this.lastName = lastName;
         this.department = department;
         this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "EmployeeDTO{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", department='" + department + '\'' +
-                ", salary=" + salary +
-                '}';
     }
 }
