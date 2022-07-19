@@ -2128,3 +2128,9 @@ Caused by: java.time.format.DateTimeParseException: Text '24-10-2020' could not 
 2022-07-19 21:30:17.316  WARN 18060 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2022-07-19 21:30:17.653  INFO 18060 --- [restartedMain] .e.e.EmployeePayrollAppSpringApplication : Started EmployeePayrollAppSpringApplication in 4.318 seconds (JVM running for 5.219)
 2022-07-19 21:30:17.657  INFO 18060 --- [restartedMain] .e.e.EmployeePayrollAppSpringApplication : Employee Payroll App Started in DEV Environment.
+2022-07-19 22:06:26.888  INFO 18372 --- [restartedMain] .e.e.EmployeePayrollAppSpringApplication : Starting EmployeePayrollAppSpringApplication using Java 17.0.1 on LAPTOP-EMKK3KLL with PID 18372 (C:\Users\iaksh\IdeaProjects\Employee Payroll App Spring\target\classes started by root in C:\Users\iaksh\IdeaProjects\Employee Payroll App Spring)
+2022-07-19 22:06:26.889 DEBUG 18372 --- [restartedMain] .e.e.EmployeePayrollAppSpringApplication : Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-19 22:06:26.890  INFO 18372 --- [restartedMain] .e.e.EmployeePayrollAppSpringApplication : The following 1 profile is active: "DEV"
+2022-07-19 22:06:30.184  WARN 18372 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-19 22:06:30.501  INFO 18372 --- [restartedMain] .e.e.EmployeePayrollAppSpringApplication : Started EmployeePayrollAppSpringApplication in 4.05 seconds (JVM running for 4.949)
+2022-07-19 22:06:30.505  INFO 18372 --- [restartedMain] .e.e.EmployeePayrollAppSpringApplication : Employee Payroll App Started in DEV Environment.
