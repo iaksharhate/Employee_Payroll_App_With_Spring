@@ -1,72 +1,50 @@
 package com.example.employeepayrollappspring.model;
 
 import com.example.employeepayrollappspring.dto.EmployeeDTO;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-public class Employee {
-
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String department;
-    private long salary;
-
-    public Employee() {
-
-    }
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "employee_payroll")
+public @Data class Employee {
 
     @Id
-    @GeneratedValue
-    public int getId() {
-        return id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "employee_id")
+    private int id;
+    @Column(name = "firstName")
+    private String firstName;
+    @Column(name = "lastName")
+    private String lastName;
+    private long salary;
+    private String gender;
+    private LocalDate startDate;
+    private String note;
+    private String profilePic;
+    @ElementCollection
+    @CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "department")
+    private List<String> department;
+
+    public Employee(EmployeeDTO employeeDTO) {
+        this.updateEmployee(employeeDTO);
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void updateEmployee(EmployeeDTO employeeDTO){
+        this.firstName = employeeDTO.getFirstName();
+        this.lastName = employeeDTO.getLastName();
+        this.salary = employeeDTO.getSalary();
+        this.gender = employeeDTO.getGender();
+        this.startDate = employeeDTO.getStartDate();
+        this.note = employeeDTO.getNote();
+        this.profilePic = employeeDTO.getProfilePic();
+        this.department = employeeDTO.getDepartment();
     }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public Employee(int id, EmployeeDTO employeeDTO) {
-        this.id = id;
-        this.firstName = employeeDTO.firstName;
-        this.lastName = employeeDTO.lastName;
-        this.department = employeeDTO.department;
-        this.salary = employeeDTO.salary;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(long salary) {
-        this.salary = salary;
-    }
-
 }
