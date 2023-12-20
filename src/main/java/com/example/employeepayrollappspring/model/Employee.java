@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,13 +21,12 @@ public @Data class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "employee_id")
     private int id;
-    @Column(name = "firstName")
-    private String firstName;
-    @Column(name = "lastName")
-    private String lastName;
+    @Column(name = "empName")
+    private String name;
     private long salary;
     private String gender;
-    private LocalDate startDate;
+    private @NotNull(message = "Date should not be empty") @PastOrPresent(message = "Date should be past or today's date.")
+    LocalDate startDate;
     private String note;
     private String profilePic;
     @ElementCollection
@@ -37,9 +38,8 @@ public @Data class Employee {
         this.updateEmployee(employeeDTO);
     }
 
-    public void updateEmployee(EmployeeDTO employeeDTO){
-        this.firstName = employeeDTO.getFirstName();
-        this.lastName = employeeDTO.getLastName();
+    public void updateEmployee(EmployeeDTO employeeDTO) {
+        this.name = employeeDTO.getName();
         this.salary = employeeDTO.getSalary();
         this.gender = employeeDTO.getGender();
         this.startDate = employeeDTO.getStartDate();

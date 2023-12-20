@@ -14,6 +14,8 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/payroll")
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class EmployeePayrollController {
 
     @Autowired
